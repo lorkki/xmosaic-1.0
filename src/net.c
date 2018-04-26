@@ -64,11 +64,11 @@ char *UserID = "Mosaic";
 typedef struct {	/* Data Object Call Back */
 	char *moduleName;
 	void (*newCB)();
-	caddr_t newData;
+	void * newData;
 	void (*changeCB)();
-	caddr_t changeData;
+	void * changeData;
 	void (*destroyCB)();
-	caddr_t destroyData;
+	void * destroyData;
 	} DOCB;
 
 typedef struct {	 /* Send Queue */
@@ -79,17 +79,17 @@ typedef struct {	 /* Send Queue */
 	DTMTYPE	type;
 	int	numTries;	/* number of attempted sends */
 	void	(*cb)();	/* called on succes cb(data,cbData) */
-	caddr_t	cbData;		/* call back data */
+	void *	cbData;		/* call back data */
 	void	(*failCB)();	/* called on failure failCB(data,failCBData) */
-	caddr_t	failCBData;	/* fail call back data */
+	void *	failCBData;	/* fail call back data */
 	} SQueue;
 
 typedef struct {
-	caddr_t internal;
+	void * internal;
 	void (*cb)();
-	caddr_t cbData;
+	void * cbData;
 	void (*failCB)();
-	caddr_t failCBData;
+	void * failCBData;
 	} ExecCBData;
 
 
@@ -258,11 +258,11 @@ int NetRegisterModule(name,netType,new,newData,change,changeData,
 char *name;		/* module Name */
 NetType netType;	/* DTM class */
 void (*new)();		/* New data Object callback */
-caddr_t newData;
+void *newData;
 void (*change)();	/* Data object has changed callback */
-caddr_t changeData;
+void *changeData;
 void (*destroy)();	/* Data object destroyed callback */
-caddr_t destroyData;
+void *destroyData;
 {
 DOCB *docb; 
 char	itsNew;
@@ -2719,9 +2719,9 @@ char	*data;
 long	num;
 DTMTYPE type;
 void 	(*cb)();
-caddr_t	cbData;
+void	*cbData;
 void 	(*failCB)(); 
-caddr_t	failCBData;
+void	*failCBData;
 int	doQueue;     /* TRUE -> Save and resend; FALSE -> let client resend*/
 
 {
@@ -3817,16 +3817,16 @@ char *retAddress;
 int argc;
 char **argv;
 void (*cb)();
-caddr_t cbData;
+void *cbData;
 void (*failCB)();
-caddr_t failCBData;
+void *failCBData;
 {
 
 }
 
 static NetExecCB(data,client_data)
-caddr_t data;
-caddr_t client_data;
+void *data;
+void *client_data;
 {
 ExecCBData *ecbd;
 
@@ -3840,8 +3840,8 @@ ExecCBData *ecbd;
 }
 
 static NetExecFailCB(data,client_data)
-caddr_t data;
-caddr_t client_data;
+void *data;
+void *client_data;
 {
 ExecCBData *ecbd;
 
@@ -3858,9 +3858,9 @@ int NetSendHostStatusRequest(outPortAddr,retAddress,cb,cbData,failCB,failCBData)
 char *outPortAddr;
 char *retAddress;
 void (*cb)();
-caddr_t cbData;
+void *cbData;
 void (*failCB)();
-caddr_t failCBData;
+void *failCBData;
 {
 char header[DTM_MAX_HEADER];
 NetPort *netPort;
@@ -3875,7 +3875,7 @@ time_t	now;
 		ErrMesg("Out of Memory\n");
 		return(-1);
 		}
-	ecbd->internal = (caddr_t) netPort;
+	ecbd->internal = (void *) netPort;
 	ecbd->cb = cb;
 	ecbd->cbData = cbData;
 	ecbd->failCB = failCB;
@@ -3912,9 +3912,9 @@ char *timeStamp;
 float load1,load5,load15;
 int numUsers;
 void (*cb)();
-caddr_t cbData;
+void *cbData;
 void (*failCB)();
-caddr_t failCBData;
+void *failCBData;
 {
 char header[DTM_MAX_HEADER];
 NetPort *netPort;
@@ -3928,7 +3928,7 @@ ExecCBData *ecbd;
 		ErrMesg("Out of Memory\n");
 		return(-1);
 		}
-	ecbd->internal = (caddr_t) netPort;
+	ecbd->internal = (void *) netPort;
 	ecbd->cb = cb;
 	ecbd->cbData = cbData;
 	ecbd->failCB = failCB;
@@ -3966,9 +3966,9 @@ int NetSendMessage(netPort,message,cb,cbData,failCB,failCBData)
 NetPort *netPort;
 char *message;
 void (*cb)();
-caddr_t cbData;
+void *cbData;
 void (*failCB)();
-caddr_t failCBData;
+void *failCBData;
 {
 char header[DTM_MAX_HEADER];
 char tmp[DTM_STRING_SIZE];

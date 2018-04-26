@@ -162,19 +162,19 @@ static XtResource resources[] =
 	{	WbNmarginWidth,
 		WbCMarginWidth, XtRDimension, sizeof (Dimension),
 		XtOffset (HTMLWidget, html.margin_width),
-		XtRImmediate, (caddr_t) MARGIN_DEFAULT
+		XtRImmediate, (void *) MARGIN_DEFAULT
 	},
 
 	{	WbNmarginHeight,
 		WbCMarginHeight, XtRDimension, sizeof (Dimension),
 		XtOffset (HTMLWidget, html.margin_height),
-		XtRImmediate, (caddr_t) MARGIN_DEFAULT
+		XtRImmediate, (void *) MARGIN_DEFAULT
 	},
 
 	{	WbNpageHeight,
 		WbCPageHeight, XtRDimension, sizeof (Dimension),
 		XtOffset (HTMLWidget, html.page_height),
-		XtRImmediate, (caddr_t) PAGE_HEIGHT_MAX
+		XtRImmediate, (void *) PAGE_HEIGHT_MAX
 	},
 
 	{	WbNcurrentPage,
@@ -186,13 +186,13 @@ static XtResource resources[] =
 	{	WbNanchorCallback,
 		XtCCallback, XtRCallback, sizeof (XtCallbackList),
 		XtOffset (HTMLWidget, html.anchor_callback),
-		XtRImmediate, (caddr_t) NULL
+		XtRImmediate, (void *) NULL
 	},
 
 	{	WbNdocumentPageCallback,
 		XtCCallback, XtRCallback, sizeof (XtCallbackList),
 		XtOffset (HTMLWidget, html.document_page_callback),
-		XtRImmediate, (caddr_t) NULL
+		XtRImmediate, (void *) NULL
 	},
 
 	{	WbNtext,
@@ -385,14 +385,14 @@ static XtResource resources[] =
                 WbCPreviouslyVisitedTestFunction, XtRPointer, 
                 sizeof (XtPointer),
                 XtOffset (HTMLWidget, html.previously_visited_test),
-                XtRImmediate, (caddr_t) NULL
+                XtRImmediate, (void *) NULL
         },
                   
         {       WbNresolveImageFunction,
                 WbCResolveImageFunction, XtRPointer, 
                 sizeof (XtPointer),
                 XtOffset (HTMLWidget, html.resolveImage),
-                XtRImmediate, (caddr_t) NULL
+                XtRImmediate, (void *) NULL
         },
                     
 };
@@ -2692,7 +2692,7 @@ static Boolean
 ConvertSelection(w, selection, target, type, value, length, format)
 	Widget w;
 	Atom *selection, *target, *type;
-	caddr_t *value;
+	void **value;
 	unsigned long *length;
 	int *format;
 {
@@ -2711,11 +2711,11 @@ ConvertSelection(w, selection, target, type, value, length, format)
 		Atom *std_targets;
 		unsigned long std_length;
 		XmuConvertStandardSelection( w, hw->html.selection_time,
-			selection, target, type, (caddr_t*)&std_targets,
+			selection, target, type, (void **)&std_targets,
 			&std_length, format);
 
 		*length = std_length + 5;
-		*value = (caddr_t)XtMalloc(sizeof(Atom)*(*length));
+		*value = (void *)XtMalloc(sizeof(Atom)*(*length));
 		targetP = *(Atom**)value;
 		*targetP++ = XA_STRING;
 		*targetP++ = XA_TEXT(d);
