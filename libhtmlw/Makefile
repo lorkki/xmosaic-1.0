@@ -1,13 +1,15 @@
 # ----------------------------------------------------------------------------
 # For normal machines with normal compilers:
-CC = cc
+# CC = cc
 # For Sun's and other non-at-least-pseudo-ANSI-C platforms:
-# CC = gcc
+CC = gcc
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
+# For modern GCC:
+CFLAGS = -g -ansi -DMOTIF -DMOTIF1_2 -DXMOSAIC
 # For SGI's:
-CFLAGS = -g -cckr -DMOTIF -DXMOSAIC
+# CFLAGS = -g -cckr -DMOTIF -DXMOSAIC
 # For HP's:
 # CFLAGS = -g -DMOTIF -DXMOSAIC -I/usr/include/Motif1.1 -I/usr/include/X11R4
 # For SCO:

@@ -1,13 +1,15 @@
 # ----------------------------------------------------------------------------
 # For normal machines with normal compilers:
-CC = cc
+# CC = cc
 # For Sun's and other non-at-least-pseudo-ANSI-C platforms:
-# CC = gcc
+CC = gcc
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
+# For modern GCC:
+CFLAGS = -g -ansi
 # For SGI's:
-CFLAGS = -g -cckr
+# CFLAGS = -g -cckr
 # For HP's:
 # CFLAGS = -g -Aa -D_HPUX_SOURCE
 # For SCO ODT:
