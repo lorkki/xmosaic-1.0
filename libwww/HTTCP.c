@@ -253,7 +253,7 @@ PUBLIC int HTParseInet ARGS2(SockA *,sin, CONST char *,str)
 		    "HTTPAccess: Can't find internet node name `%s'.\n",host);
 	    return -1;  /* Fail? */
 	}
-	memcpy(&sin->sin_addr, phost->h_addr, phost->h_length);
+	memcpy(&sin->sin_addr, phost->h_addr_list[0], phost->h_length);
     }
 
     if (TRACE) fprintf(stderr,  
@@ -306,7 +306,7 @@ PRIVATE void get_host_details()
 	return;  /* Fail! */
     }
     StrAllocCopy(hostname, phost->h_name);
-    memcpy(&HTHostAddress, &phost->h_addr, phost->h_length);
+    memcpy(&HTHostAddress, &phost->h_addr_list[0], phost->h_length);
     if (TRACE) fprintf(stderr, "     Name server says that I am `%s' = %s\n",
 	    hostname, HTInetString(&HTHostAddress));
 #endif

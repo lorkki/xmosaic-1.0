@@ -132,7 +132,7 @@ PRIVATE BOOL initialize NOARGS
 	      "HTNews: Can't find internet node name `%s'.\n",NewsHost);
 	    return NO;  /* Fail */
 	}
-	memcpy(&sin->sin_addr, phost->h_addr, phost->h_length);
+	memcpy(&sin->sin_addr, phost->h_addr_list[0], phost->h_length);
     }
 
     if (TRACE) fprintf(stderr,  
