@@ -1,0 +1,49 @@
+Everything not already copyrighted by CERN is copyrighted by NCSA
+(including the contents of the libhtmlw, libdmf, and src directories,
+but not including the contents of libdtm, which is entirely public
+domain).
+
+The official NCSA Mosaic copyright statement follows:
+
+/****************************************************************************
+ * NCSA Mosaic for the X Window System                                      *
+ * Copyright (C) 1993                                                       *
+ * National Center for Supercomputing Applications                          *
+ * Software Development Group                                               *
+ * 605 E. Springfield, Champaign IL 61820                                   *
+ *                                                                          *
+ * The NCSA software Mosaic, both binary and source, is copyrighted,        *
+ * but available without fee for education, academic research and           *
+ * non-commercial purposes.  The software is copyrighted in the name of     *
+ * the University of Illinois, and ownership of the software remains with   *
+ * the University of Illinois.  Users may distribute the binary and         *
+ * source code to third parties provided that the copyright notice and      *
+ * this statement appears on all copies and that no charge is made for      *
+ * such copies.  Any entity wishing to integrate all or part of the         *
+ * source code into a product for commercial use or resale, should          *
+ * contact the University of Illinois, c/o NCSA, to negotiate an            *
+ * appropriate license for such commercial use.                             *
+ *                                                                          *
+ * THE UNIVERSITY OF ILLINOIS MAKES NO REPRESENTATIONS ABOUT THE            *
+ * SUITABILITY OF THE SOFTWARE FOR ANY PURPOSE.  IT IS PROVIDED "AS IS"     *
+ * WITHOUT EXPRESS OR IMPLIED WARRANTY.  THE UNIVERSITY OF ILLINOIS SHALL   *
+ * NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY THE USER OF THIS SOFTWARE.     *
+ * The software may have been developed under agreements between the        *
+ * University of Illinois and the Federal Government which entitle the      *
+ * Government to certain rights.                                            *
+ *                                                                          *
+ * By copying this program, you, the user, agree to abide by the            *
+ * copyright conditions and understandings with respect to any software     *
+ * which is marked with a copyright notice.                                 *
+ *                                                                          *
+ * If you have problems or comments about NCSA Mosaic, please feel free     *
+ * to mail them to marca@ncsa.uiuc.edu.                                     *
+ ****************************************************************************/
+
+For more information on copyright and licensing issues, contact:
+
+Marc Andreessen (marca@ncsa.uiuc.edu)
+NCSA Mosaic Design Lead
+National Center for Supercomputing Applications
+Software Development Group
+605 E. Springfield, Champaign IL 61820
