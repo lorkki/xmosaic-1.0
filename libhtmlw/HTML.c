@@ -142,7 +142,8 @@ static XtActionsRec actionsList[] =
    { "extend-end",      (XtActionProc) ExtendEnd },
    { "HTMLInput",	(XtActionProc) _HTMLInput },
 
-#ifdef MOTIF
+#ifdef MOTIF1_2
+#elif MOTIF
    { "Arm",      (XtActionProc) _XmGadgetArm },         /* Motif 1.0 */
    { "Activate", (XtActionProc) _XmGadgetActivate },    /* Motif 1.0 */
    { "Enter",    (XtActionProc) _XmManagerEnter },      /* Motif 1.0 */
