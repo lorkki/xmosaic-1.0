@@ -86,7 +86,7 @@ extern char *strncpy();
 
 typedef struct _connection {
     struct _connection *	next;	/* Link on list 	*/
-    u_long			addr;	/* IP address		*/
+    unsigned long	addr;	/* IP address		*/
     int				socket;	/* Socket number for communication */
     BOOL			binary; /* Binary mode? */
 } connection;
